@@ -1,0 +1,2 @@
+$entete = "Content-Type: text/html;\n";
+

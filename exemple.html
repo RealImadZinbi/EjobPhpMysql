@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<style type="text/css">
+		body{
+			background-image: url(imgg.jpg);
+			background-size: cover;
+			background-attachment: fixed;
+		}
+	</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>a propos</title>
+<meta name="description" content="Script jQuery, Le contenu survolé par la souris est mis en évidence par le floutage du reste de la page" />
+<meta name="Robots" content="all"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="csss/demo.css" />
+<link rel="stylesheet" type="text/css" href="csss/style.css" />
+<script src="jss/modernizr.custom.34978.js"></script>	
+</head>
+
+<body>
+<div style="width:300px;height:200px;color:black;font-size:18px;">
+
+</div>
+
+<div class="container">
+<section class="ib-container" id="ib-container">
+	<article>
+		<header>
+			<h3><a target="_blank" href="http://www.outils-web.com/page-script-jquery-lightbox.asp">pourquoi e-job !</a></h3>
+			<span>la reponse est :</span>
+		</header>
+		<p>Les meilleurs scripts qui vous permettront à coup sur de présenter simplement vos oeuvres de façon esthétique et professionnelle. Tous les lightbox ont été réalisés par des experts en javascript ou jQuery</p>
+	</article>
+	<article>
+		<header>
+			<h3><a target="_blank" href="http://www.outils-web.com/page-script-jquery.asp">qui somme nous !?</a></h3>
+			<span>la reponse est :</span>
+		</header>
+		<p>Sélectionnez la catégorie puis le script qui vous intéresse, au besoin affichez l'aperçu, et enfin récupérez le code. Attention à bien placer les lignes de code dans les emplacements définis.</p>
+	</article>
+	<article>
+		<header>
+			<h3><a target="_blank" href="http://www.outils-web.com/page-script-html-css-menu.asp">notre temoignages </a></h3>
+			<span>la reponse est :</span>
+		</header>
+		<p>Outils-web a sélectionné les meilleurs scripts qui vous permettront à coup sur de présenter et agrémenter vos pages de façon esthétique et professionnelle.</p>
+	</article>	
+</section>
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var $container	= $('#ib-container'),
+			$articles	= $container.children('article'),
+				timeout;
+			$articles.on( 'mouseenter', function( event ) {
+
+			var $article	= $(this);
+			clearTimeout( timeout );
+			timeout = setTimeout( function() {
+				if( $article.hasClass('active') ) return false;
+				$articles.not( $article.removeClass('blur').addClass('active') )
+			 .removeClass('active')
+			 .addClass('blur');
+					}, 65 );
+				});
+			$container.on( 'mouseleave', function( event ) {
+			clearTimeout( timeout );
+			$articles.removeClass('active blur');
+			});
+			});
+</script>
+</body>
+</html>
